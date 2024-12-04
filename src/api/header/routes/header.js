@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * response router
+ * header router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::response.response');
+module.exports = createCoreRouter('api::header.header');
