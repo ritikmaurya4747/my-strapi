@@ -4,36 +4,48 @@
   "info": {
     "singularName": "header",
     "pluralName": "headers",
-    "displayName": "Header"
+    "displayName": "Header",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "short_label": {
       "type": "string"
     },
-    "ShortLabel": {
-      "type": "string"
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "_blank",
+        "_self"
+      ]
     },
-    "URL": {
-      "type": "string"
+    "sequence": {
+      "type": "biginteger"
     },
-    "Target": {
-      "type": "string"
+    "submenu_items": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::header.header"
     },
-    "Sequence": {
-      "type": "string"
+    "menu_type": {
+      "type": "enumeration",
+      "enum": [
+        "header",
+        "footer"
+      ]
     },
-    "SubmenuItems": {
-      "type": "string"
-    },
-    "MenuType": {
-      "type": "string"
-    },
-    "IsVisible": {
+    "is_visible": {
       "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }

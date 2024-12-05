@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiHeaderHeader extends Struct.CollectionTypeSchema {
   collectionName: 'headers';
   info: {
+    description: '';
     displayName: 'Header';
     pluralName: 'headers';
     singularName: 'header';
@@ -383,24 +384,24 @@ export interface ApiHeaderHeader extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    IsVisible: Schema.Attribute.Boolean;
+    is_visible: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::header.header'
     > &
       Schema.Attribute.Private;
-    MenuType: Schema.Attribute.String;
+    menu_type: Schema.Attribute.Enumeration<['header', 'footer']>;
     publishedAt: Schema.Attribute.DateTime;
-    Sequence: Schema.Attribute.String;
-    ShortLabel: Schema.Attribute.String;
-    SubmenuItems: Schema.Attribute.String;
-    Target: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
+    sequence: Schema.Attribute.BigInteger;
+    short_label: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'title'>;
+    submenu_items: Schema.Attribute.Relation<'oneToOne', 'api::header.header'>;
+    target: Schema.Attribute.Enumeration<['_blank', '_self']>;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    URL: Schema.Attribute.String;
   };
 }
 
