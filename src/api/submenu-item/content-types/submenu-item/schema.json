@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "submenu_items",
+  "info": {
+    "singularName": "submenu-item",
+    "pluralName": "submenu-items",
+    "displayName": "Submenu Items",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "URL": {
+      "type": "string"
+    },
+    "submenu": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::submenu.submenu",
+      "inversedBy": "submenu_items"
+    }
+  }
+}
